@@ -15,7 +15,7 @@ public class UsingStreamIdentifyPrime {
         if (num <= 1) {
             return false;
         }
-        return !IntStream.rangeClosed(2, (int) Math.sqrt(num))
-                .anyMatch(i -> num % i == 0);
+        return IntStream.rangeClosed(2, (int) Math.sqrt(num))
+                .noneMatch(i -> num % i == 0);
     }
 }
