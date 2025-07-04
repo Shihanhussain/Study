@@ -11,7 +11,6 @@ public class CountDigitsinList {
         Map<Long,Long> count = lists.stream()
                 .collect(Collectors.groupingBy(list->list,Collectors.counting()));
 
-        count.entrySet().
-                forEach(entry->System.out.println("String: " + entry.getKey() + ", Count: " + entry.getValue()));
+        count.forEach((key, value) -> System.out.println("Value: " + key + ", Count: " + value));
     }
 }
