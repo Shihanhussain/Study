@@ -1,20 +1,21 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class DuplicateNumberOccurance {
 
     public static void main(String[] args) {
 
-        int a = 1233445;
-        int b = 3;
+        int[] arr = {1, 2, 2, 3, 4, 4, 5};
+        findDuplicateOccurrences(arr);
+    }
 
-        int count  = 0;
-
-        while (a!=0){
-            int digit = a%10;
-            if(digit == b){
-                count++;
-            }
-            a=a/10;
-        }
-        System.out.println("Number of occurrences of digit " + b + ": " + count);
-
+    private static void findDuplicateOccurrences(int[] arr) {
+        Arrays.stream(arr)
+                .boxed()
+                .collect(Collectors.groupingBy(num -> num, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() > 1)
+                .forEach(entry -> System.out.println("Duplicate number: " + entry.getKey()));
     }
 }
