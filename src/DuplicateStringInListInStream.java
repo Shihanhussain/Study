@@ -21,5 +21,11 @@ public class DuplicateStringInListInStream {
         duplicateCountMap.entrySet().stream()
                 .filter(entry -> entry.getValue() > 1)
                 .forEach(entry -> System.out.println("String: " + entry.getKey() + ", Count: " + entry.getValue()));
+
+        duplicateCountMap.forEach((String,Long) -> {
+            if (Long > 1) {
+                System.out.println("String: " + String + ", Count: " + Long);
+            }
+        });
     }
 }
